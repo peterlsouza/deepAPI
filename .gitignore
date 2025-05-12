@@ -1,0 +1,25 @@
+# Arquivos de build/execução
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.cache
+
+# Dependências
+node_modules/
+bower_components/
+
+# Arquivos de configuração sensíveis
+appsettings.Development.json
+appsettings.Secrets.json
+
+# Logs e diagnósticos
+logs/
+*.log
+*.njsproj
+*.sln.iml
+
+# Arquivos do IDE Rider
+.idea/
