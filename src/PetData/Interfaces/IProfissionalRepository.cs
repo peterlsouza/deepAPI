@@ -11,6 +11,7 @@ namespace PetData.Interfaces
     {
         Task<Profissional?> GetById(int id);
         Task<IEnumerable<Profissional>> GetAll();
+        Task<IEnumerable<Profissional>> GetByProfile(string profile);
         Task<int> Create(Profissional profissional);
         Task Update(Profissional profissional);
         Task Delete(int id);

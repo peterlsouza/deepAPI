@@ -9,6 +9,6 @@ namespace PetData.Interfaces
 {
     public interface IDatabaseConnection
     {
-        IDbConnection GetConnection();
+        IDbConnection GetConnection(); // Método que retorna uma conexão
     }
 }

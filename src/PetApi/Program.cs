@@ -16,10 +16,12 @@ builder.Services.AddSingleton<IDatabaseConnection>(new SqlConnectionFactory(conn
 // Repositories
 builder.Services.AddScoped<IProfissionalRepository, ProfissionalRepository>();
 builder.Services.AddScoped<IServicoRepository, ServicoRepository>();
+builder.Services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
 
 // Services
 builder.Services.AddScoped<IProfissionalService, ProfissionalService>();
 builder.Services.AddScoped<IServicoService, ServicoService>();
+builder.Services.AddScoped<IAgendamentoService, AgendamentoService>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();

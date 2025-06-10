@@ -24,12 +24,23 @@ namespace PetData.Repositories
             using var connection = _dbConnection.GetConnection();
             return await connection.QueryFirstOrDefaultAsync<Profissional>(
                 "SELECT * FROM Profissionais WHERE Id = @Id", new { Id = id });
+
         }
 
         public async Task<IEnumerable<Profissional>> GetAll()
         {
             using var connection = _dbConnection.GetConnection();
             return await connection.QueryAsync<Profissional>("SELECT * FROM Profissionais");
+        }
+
+        public async Task<IEnumerable<Profissional>> GetByProfile(string profile = null)
+        {
+            using var connection = _dbConnection.GetConnection();
+            var sql = "SELECT * FROM Profissionais";
+            if (!string.IsNullOrEmpty(profile))
+                sql += " WHERE Especialidade = @Especialidade";
+
+            return await connection.QueryAsync<Profissional>(sql, new { Especialidade = profile });
         }
 
         public async Task<int> Create(Profissional profissional)
@@ -60,5 +71,7 @@ namespace PetData.Repositories
             using var connection = _dbConnection.GetConnection();
             await connection.ExecuteAsync("DELETE FROM Profissionais WHERE Id = @Id", new { Id = id });
         }
+
+        
     }
 }
